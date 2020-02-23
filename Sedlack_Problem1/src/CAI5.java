@@ -57,7 +57,7 @@ public class CAI5 {
 		operatorNumber = n;
 	}
 	
-	private void operator(int n)
+	private int operator(int n)
 	{
 		int o;
 		if(n == 5)
@@ -75,6 +75,7 @@ public class CAI5 {
 			case 4: divide();
 				break;
 		}
+		return o;
 	}
 
 	private void add()
@@ -111,7 +112,7 @@ public class CAI5 {
 	{
 		intOne = random();
 		intTwo = random();
-		if(checkForDouble(intOne, intTwo))
+		if(checkForDouble(intOne, intTwo) || intTwo == 0)
 			divide();
 		divideList[intOne][intTwo] = true;
 		answer = ((float)intOne)/intTwo;
@@ -185,9 +186,7 @@ public class CAI5 {
 	}
 	private void askQuestion(int n)
 	{
-		operator(operatorNumber);
-		
-		switch(n)
+		switch(operator(n))
 		{
 			case 1: System.out.println("What is " + intOne +" + " + intTwo + "?");
 				break;
